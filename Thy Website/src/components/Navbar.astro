@@ -1,20 +1,41 @@
 ---
-import HamburgerMenu from '@astropub/icons/HamburgerMenu'
+import HamburgerMenu from "@astropub/icons/HamburgerMenu";
 ---
+
 <header>
-    <nav>
-        <div class="hamburger">
-            <HamburgerMenu fill="white" size="30"/>
-        </div>
-        <div class="HCP">
-
-        </div>
-        <div class="Contact">
-
-        </div>
-    </nav>
+  <nav>
+    <div class="hamburger">
+      <HamburgerMenu fill="white" size="30" />
+    </div>
+    <div class="HCP">
+      <h1>HCP</h1>
+    </div>
+    <div class="Contact interactable" 
+    data-type="link">
+      <button> Contact</button>
+    </div>
+  </nav>
 </header>
 
 <style>
-    
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    /* background-color: #646cff; */
+    background-color: black;
+  }
+  /* Centre the content in all the divs */
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header{
+    position: sticky;
+    top: 0;
+  }
 </style>

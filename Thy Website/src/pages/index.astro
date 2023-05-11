@@ -1,14 +1,120 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import * as Icon from '@astropub/icons'
 import Navbar from "../components/Navbar.astro";
 ---
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<BaseHead title="Hack Club Pune"  description="Hack Club @ Pune"/>
-</head>
-<body>
-	<Navbar/>
-	
-</body>
+  <head>
+    <BaseHead title="Hack Club Pune" description="Hack Club @ Pune" />
+  </head>
+
+  <body>
+    <div id="trailer">
+      <!-- <i id="trailer-icon" class="fa-solid fa-arrow-up-right"></i> -->
+      <Icon.ArrowTopRight fill="black" size="10" id="trailer-icon"/>
+
+    </div>
+    <Navbar />
+    <div class="hero">
+      <div class="rounded">
+        <div class="hero-text">
+          <h1>Join a Community of</h1>
+        <h1>Makers , Doers</h1>
+        <h1>and Dreamers</h1>
+        <h1>with <span class="highlight">Hack Club</span></h1>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="hero">
+      <div class="rounded">
+        <br>
+        <h1 style="padding-left: 30px;">Join a Community of</h1>
+        <br>
+        <br>
+        <h1 style="padding-left: 256px;">Makers , Doers</h1>
+        <br>
+        <h1 style="padding-left: 515px;">and Dreamers</h1>
+        <br>
+        <br>
+        <h1 style="padding-left: 700px;">with <span class="highlight">Hack Club</span></h1>
+        <br>
+        <br>
+      </div>
+    </div> -->
+
+    <script>
+      const trailer = document.getElementById("trailer");
+
+      const animateTrailer = (e, interacting) => {
+        const x = e.clientX - trailer.offsetWidth / 2,
+          y = e.clientY - trailer.offsetHeight / 2;
+
+        const keyframes = {
+          transform: `translate(${x}px, ${y}px) scale(${interacting ? 4 : 1})`,
+        };
+
+        trailer.animate(keyframes, {
+          duration: 800,
+          fill: "forwards",
+        });
+      };
+
+
+      window.onmousemove = (e) => {
+        const interactable = e.target.closest(".interactable"),
+          interacting = interactable !== null;
+
+        const icon = document.getElementById("trailer-icon");
+
+        animateTrailer(e, interacting);
+
+        trailer.dataset.type = interacting ? interactable.dataset.type : "";
+
+      };
+    </script>
+  </body><style>
+  div.hero-text{
+    line-height: 2;
+    margin:auto;
+  }
+  @media screen and (min-width: 768px) {
+    h1:nth-of-type(1) {
+      padding-left: 5%;
+    }
+
+    h1:nth-of-type(2) {
+      padding-left: 20%;
+    }
+
+    h1:nth-of-type(3) {
+      padding-left: 35%;
+    }
+
+    h1:nth-of-type(4) {
+      padding-left: 50%;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    h1 {
+      font-size: 48px;
+    }
+  }
+    div.rounded {
+      background: #1d1c1d;
+      border-radius: 50px;
+      padding: 20px;
+      min-height: fit-content;
+      /* height: 80vh; */
+      width: 95%;
+      margin: auto;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+    }
+    h1 {
+      font-size: 4rem;
+    }
+  </style>
 </html>
