@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import * as Icon from '@astropub/icons'
+import * as Icon from "@astropub/icons";
 import Navbar from "../components/Navbar.astro";
 ---
 
@@ -8,41 +8,135 @@ import Navbar from "../components/Navbar.astro";
 <html lang="en">
   <head>
     <BaseHead title="Hack Club Pune" description="Hack Club @ Pune" />
+    <style>
+      div.hero-text {
+        line-height: 2;
+        margin: auto;
+      }
+      @media screen and (min-width: 768px) {
+        h1:nth-of-type(1) {
+          padding-left: 5%;
+        }
+
+        h1:nth-of-type(2) {
+          padding-left: 20%;
+        }
+
+        h1:nth-of-type(3) {
+          padding-left: 35%;
+        }
+
+        h1:nth-of-type(4) {
+          padding-left: 50%;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        h1 {
+          font-size: 48px;
+        }
+        h2 {
+          font-size: 32px;
+        }
+      }
+      div.rounded {
+        background: #1d1c1d;
+        border-radius: 50px;
+        padding: 20px;
+        min-height: fit-content;
+        /* height: 80vh; */
+        width: 95%;
+        margin: auto;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+      }
+      h1 {
+        font-size: 4rem;
+      }
+      div.boxes {
+  width: 95%;
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+p{
+  font-size: 1.5rem;
+}
+
+.box {
+    background-color: #1d1c1d;
+    border-radius: 50px;
+    padding: 20px;
+    font-size: 2rem;
+    margin: 10px;
+    display: inline-block;
+    width: calc(49% - 20px);
+}
+
+      .about {
+        width: 95%;
+        margin: auto;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        background-color: #1d1c1d;
+        border-radius: 50px;
+        padding: 20px;
+        font-size: 1.5rem;
+      }
+    </style>
   </head>
 
   <body>
     <div id="trailer">
       <!-- <i id="trailer-icon" class="fa-solid fa-arrow-up-right"></i> -->
-      <Icon.ArrowTopRight fill="black" size="10" id="trailer-icon"/>
-
+      <Icon.ArrowTopRight fill="black" size="10" id="trailer-icon" />
     </div>
     <Navbar />
     <div class="hero">
       <div class="rounded">
         <div class="hero-text">
           <h1>Join a Community of</h1>
-        <h1>Makers , Doers</h1>
-        <h1>and Dreamers</h1>
-        <h1>with <span class="highlight">Hack Club</span></h1>
+          <h1>Makers , Doers</h1>
+          <h1>and Dreamers</h1>
+          <h1>with <span class="highlight">Hack Club</span></h1>
         </div>
       </div>
     </div>
-    <!-- <div class="hero">
-      <div class="rounded">
-        <br>
-        <h1 style="padding-left: 30px;">Join a Community of</h1>
-        <br>
-        <br>
-        <h1 style="padding-left: 256px;">Makers , Doers</h1>
-        <br>
-        <h1 style="padding-left: 515px;">and Dreamers</h1>
-        <br>
-        <br>
-        <h1 style="padding-left: 700px;">with <span class="highlight">Hack Club</span></h1>
-        <br>
-        <br>
+    <div class="boxes">
+      <div class="box">
+        <h2>Where?</h2>
+        <p>Hack Club Pune (HCP) is a community of coders based in Pune, India, who have come together to learn, collaborate, and grow their coding skills. While our regular meetups and coding sessions take place online through Zoom, we do plan to have offline meetings and events in Pune in the future. We welcome coders of all levels, from beginners to experts, and strive to create a space where everyone feels valued and supported. Join us on Zoom to connect with the community and stay tuned for updates on our future offline events!</p>
       </div>
-    </div> -->
+      <div class="box">
+        <h2>Why?</h2>
+        <p>HCP aims to unite coders in Pune, India and provide them with a platform to learn, collaborate and improve their coding skills. By organizing regular meetups, workshops, and coding sessions, HCP strives to create a supportive and collaborative community where coders of all levels can come together to share their knowledge and learn from one another. The ultimate goal of HCP is to foster a culture of innovation and creativity in Pune's tech community.</p>
+      </div>
+    </div>
+    <div class="about">
+      <!-- Im sorry im lazy -->
+      <h1 style="margin-left: 35%;">About</h1>
+      <p>
+        Hack Club Pune (HCP) is a community of coders in Pune, India, who have
+        come together to learn, collaborate, and grow their coding skills. The
+        club operates online through Zoom meetings, which means that members can
+        join and participate from anywhere in the world with an internet
+        connection.<br /><br />
+        At HCP, we believe that coding is more fun when you're doing it with a supportive
+        and collaborative community. That's why we host regular meetups, workshops,
+        and coding sessions where members can network, share knowledge, and work
+        on projects together. We welcome coders of all levels, from beginners to
+        experts, and we strive to create a space where everyone feels valued and
+        supported.<br /><br />
+        We're affiliated with Hack Club, a global nonprofit organization that provides
+        resources and support to student-led coding clubs worldwide. This means that
+        HCP members have access to a wealth of learning resources, mentorship, and
+        connections with other coding communities around the world.<br /><br />
+        If you're looking to improve your coding skills, meet other like-minded individuals,
+        and have fun while doing it, then HCP is the place for you! Check out our
+        website and social media pages to learn more about our upcoming events and
+        activities. We can't wait to welcome you to the HCP community!
+      </p>
+    </div>
 
     <script>
       const trailer = document.getElementById("trailer");
@@ -61,7 +155,6 @@ import Navbar from "../components/Navbar.astro";
         });
       };
 
-
       window.onmousemove = (e) => {
         const interactable = e.target.closest(".interactable"),
           interacting = interactable !== null;
@@ -71,50 +164,7 @@ import Navbar from "../components/Navbar.astro";
         animateTrailer(e, interacting);
 
         trailer.dataset.type = interacting ? interactable.dataset.type : "";
-
       };
     </script>
-  </body><style>
-  div.hero-text{
-    line-height: 2;
-    margin:auto;
-  }
-  @media screen and (min-width: 768px) {
-    h1:nth-of-type(1) {
-      padding-left: 5%;
-    }
-
-    h1:nth-of-type(2) {
-      padding-left: 20%;
-    }
-
-    h1:nth-of-type(3) {
-      padding-left: 35%;
-    }
-
-    h1:nth-of-type(4) {
-      padding-left: 50%;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    h1 {
-      font-size: 48px;
-    }
-  }
-    div.rounded {
-      background: #1d1c1d;
-      border-radius: 50px;
-      padding: 20px;
-      min-height: fit-content;
-      /* height: 80vh; */
-      width: 95%;
-      margin: auto;
-      margin-top: 5vh;
-      margin-bottom: 5vh;
-    }
-    h1 {
-      font-size: 4rem;
-    }
-  </style>
+  </body>
 </html>
